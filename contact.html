@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Salopian Motorsport Limited | Motorcycle | Car | Service & Repair in Shrewsbury</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+	<header class="header">
+		<a href="index.html" class="logo">Salopian<span>Motorsport</span></a>
+
+		<i class='bx bx-menu' id="menu-icon"></i>
+
+		<nav class="navbar">
+			
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="motorcycle.html">Motorcycle</a></li>
+			<li><a href="car.html">Car</a></li>
+			<li><a href="contact.html" class="active">Contact</a></li>
+		</ul>
+			
+		</nav>
+	</header>
+
+    <section class="courses" id="courses"> 
+
+	<h2 class="heading">Contact <span>Us</span></h2>
+
+	<div class="courses-box">
+		
+		<div class="courses-card">
+
+			<h3>Opening <span>Hours</span></h3>
+			<p>Mon-Fri: 8:00 - 18:00</p>
+            <p>Sat: 8:00 - 12:00</p>
+            <p>Sun: Closed</p>
+		</div>
+		
+		<div class="courses-card">
+
+			<h3>Let's <span>Talk</span></h3>
+			<p>Whether you're after a full engine rebuild, a car service, or just some expert advice - we're here to help.</p>
+            <p>Contact us using the details below, or fill out the quick enquiry form and we'll get back to you within 24 hours.</p>
+            <div class="btn-group">
+			<a href="tel:07874072613" class="btn">Call</a>
+		</div>
+		</div>
+		
+		<div class="courses-card">
+
+			<h3>What Happens <span>Next?</span></h3>
+			<p>Once you submit your enquiry, a technician from our team will be in touch by phone or email to discuss your needs.</p>
+            <p>No automated replies. Just real people who love what they do.</p>
+            <div class="btn-group">
+			<a href="mailto:ajbyrne91@outlook.com" class="btn">Email</a>
+		</div>
+		</div>		
+	</div>
+
+</section>
+
+<section class="contact" id="contact">
+	<h2 class="heading">Read Our <span>Reviews</span></h2>
+<div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2416.1845031584935!2d-2.8173565237285616!3d52.728862972116644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a9fba02e91107%3A0x2c319ef08979e93c!2sSalopian%20Motorsport%20Limited!5e0!3m2!1sen!2suk!4v1752524296781!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+<section class="contact" id="contact">
+	<h2 class="heading">Send Us A <span>Message</span></h2>
+
+	<form action="https://script.google.com/macros/s/AKfycbzwtVDaCnmivRUrf6Azpi9biSsXwJJCVhMRSm5MmLhAVbB-EV3SYYnZz3pSoGdUke159w/exec" method="POST" id="contactForm">
+    <div class="input-group">
+        <div class="input-box">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-box">
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <input type="text" name="subject" placeholder="Subject" required>
+        </div>
+    </div>
+    <div class="input-group-2">
+        <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message" class="btn">
+    </div>
+</form>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var submitBtn = this.querySelector('input[type="submit"]');
+    var originalText = submitBtn.value;
+    
+    // Show loading state
+    submitBtn.value = 'Sending...';
+    submitBtn.disabled = true;
+    
+    var formData = new FormData(this);
+    var data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        subject: formData.get('subject'),
+        message: formData.get('message')
+    };
+    
+    fetch(this.action, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.result === 'success') {
+            alert('Message sent successfully! We\'ll get back to you soon.');
+            this.reset();
+        } else {
+            alert('Sorry, there was an error. Please try again or call us directly.');
+        }
+    })
+    .catch(error => {
+        alert('Sorry, there was an error. Please try again or call us directly.');
+    })
+    .finally(() => {
+        // Reset button
+        submitBtn.value = originalText;
+        submitBtn.disabled = false;
+    });
+});
+</script>
+
+<footer class="footer">
+	<div class="social">
+			<a href="https://www.facebook.com/share/16dyAodXLT/?mibextid=wwXIfr"><i class='bx bxl-facebook-circle'></i></a>
+			<a href="https://www.instagram.com/salopianmotorsport?igsh=bzdzZmtpdmQzdWZl&utm_source=qr"><i class='bx bxl-instagram'></i></a>
+			<a href="https://wa.me/447731118933"><i class='bx bxl-whatsapp' ></i></a>
+            <a href="https://m.me/blackcrowkingltd"><i class='bx bxl-messenger'></i></a>
+	</div>
+
+	<ul class="list">
+		<li>
+			<a href="index.html">Home</a>
+		</li>
+
+		<li>
+			<a href="motorcycle.html">Motorcycle</a>
+		</li>
+
+		<li>
+			<a href="car.html">Car</a>
+		</li>
+
+		<li>
+			<a href="#">Contact</a>
+		</li>
+	</ul>
+		<p class="copyright">
+All services at Salopian Motorsport are carried out strictly by prior appointment only.
+<br>
+<br>
+We do not offer walk-in diagnostics, repairs, or consultations without a confirmed booking. This policy ensures each vehicle receives the time, care, and attention it deserves.
+<br>
+<br>
+To schedule your service or repair, please use our online booking form, call us directly, or email our team.
+<br>
+</p>
+
+	<p class="copyright">
+		© Salopian Motorsport Limited 2025 | All Rights Reserved
+	</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
