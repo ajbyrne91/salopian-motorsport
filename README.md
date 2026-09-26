@@ -1,45 +1,59 @@
 # Salopian Motorsport Limited
 
-![Website Screenshot](image.jpg)
+Motorcycle-focused website for Salopian Motorsport Limited, an independent motorcycle service and repair workshop in Shrewsbury.
 
-A fully responsive business website for Salopian Motorsport Limited, a motorcycle and car service repair workshop based in Shrewsbury, Shropshire.
+**Live site:** https://salopianmotorsport.co.uk/
 
-**Live Site:** [https://salopianmotorsport.co.uk/](https://salopianmotorsport.co.uk/)
+## Positioning
 
----
+The site is focused on motorcycle customers in Shrewsbury. Car services and MOTs are no longer promoted.
 
-## Overview
+Core services:
+- Motorcycle servicing
+- Motorcycle repairs
+- Diagnostics and electrical fault finding
+- Motorcycle tyre supply, fitting and balancing
+- Engine and specialist mechanical work
+- Suitable home visits by prior arrangement
 
-This project is a complete business website built for a local independent garage. It showcases their services, tyre brands, contact information, and includes a functional contact form that sends enquiries directly to a Google Sheets backend.
+Salopian Motorsport does not provide roadside breakdown or recovery services and does not carry out MOT tests.
 
-The site was built from scratch using HTML, CSS, and JavaScript, with a focus on clean design, mobile responsiveness, and a professional user experience.
+## Site structure
 
----
+- `index.html` — local motorcycle workshop homepage
+- `motorcycle.html` — motorcycle services overview
+- `motorcycle-servicing-shrewsbury.html` — servicing landing page
+- `motorcycle-repairs-shrewsbury.html` — repairs landing page
+- `motorcycle-diagnostics-shrewsbury.html` — diagnostics/electrical landing page
+- `motorcycle-tyres-shrewsbury.html` — tyre landing page
+- `about.html` — business positioning
+- `contact.html` — contact details, map and booking-request form
+- `car.html` — retired legacy car page with noindex/client redirect
+- `404.html` — not-found page
+- `robots.txt` / `sitemap.xml` — search-engine discovery
+- `_redirects` — server-side car-page redirect on hosts that support the format
 
-## Features
+## Technology
 
-- **Fully responsive design** – Optimised for desktop, tablet, and mobile devices
-- **Multi-page structure** – Home, Motorcycle Services, Car Services, and Contact pages
-- **Dynamic text animation** – Rotating keywords on the homepage (servicing, repairs, tyres, MOTs, diagnostics)
-- **Interactive service cards** – Display motorcycle repair services with images and descriptions
-- **Tyre brand showcase** – Grid layout featuring major tyre manufacturers
-- **Functional contact form** – Submissions sent to Google Sheets via Google Apps Script (no backend required)
-- **Google Maps integration** – Embedded map showing workshop location
-- **Social media links** – Facebook, Instagram, WhatsApp, and Messenger integration
-- **Mobile hamburger menu** – Collapsible navigation for smaller screens
-- **Hover effects & animations** – Smooth transitions and interactive elements throughout
+Static HTML, CSS and vanilla JavaScript. The booking form preserves the existing Google Apps Script contract (`name`, `email`, `phone`, `subject`, `message`) while collecting motorcycle-specific fields in the browser.
 
----
+## SEO foundations
 
-## Technologies Used
+- Unique titles and meta descriptions
+- Canonical URLs
+- Open Graph metadata
+- Semantic headings and internal links
+- `MotorcycleRepair` JSON-LD on the homepage
+- Service JSON-LD on core service pages
+- Sitemap and robots file
+- Legacy car page removed from navigation and sitemap
+- Shrewsbury-focused copy without doorway-location pages
 
-| Technology | Purpose |
-|------------|---------|
-| **HTML5** | Semantic page structure |
-| **CSS3** | Custom styling, animations, and responsive layouts |
-| **JavaScript (ES6)** | Mobile menu toggle, form submission handling, interactivity |
-| **Boxicons** | Icon library for social media and UI elements |
-| **Google Apps Script** | Backend for contact form (submissions to Google Sheets) |
-| **Google Maps Embed API** | Location map integration |
+## Publishing checklist
 
----
+1. Confirm the preferred public email address.
+2. Confirm Google Business Profile hours remain Mon–Fri 08:00–18:00 and Sat 08:00–13:00.
+3. Verify the hosting provider applies `_redirects`; if not, configure a true HTTP 301 from `/car` and `/car.html` to `/`.
+4. Test the booking form end-to-end against Google Apps Script.
+5. Run Lighthouse / PageSpeed on the deployed preview.
+6. Submit `/sitemap.xml` in Google Search Console.
