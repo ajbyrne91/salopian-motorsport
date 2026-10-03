@@ -1,59 +1,66 @@
-# Salopian Motorsport Limited
+# Salopian Motorsport
 
-Motorcycle-focused website for Salopian Motorsport Limited, an independent motorcycle service and repair workshop in Shrewsbury.
+A responsive business website for Salopian Motorsport Limited, an independent motorcycle workshop in Bicton, Shrewsbury. It brings service information, workshop details and motorcycle booking enquiries together in a straightforward customer journey.
 
-**Live site:** https://salopianmotorsport.co.uk/
+**Website:** [salopianmotorsport.co.uk](https://salopianmotorsport.co.uk/)
 
-## Positioning
+## Project overview
 
-The site is focused on motorcycle customers in Shrewsbury. Car services and MOTs are no longer promoted.
+This is a practical example of translating a small business's needs into a maintainable website. The current site covers motorcycle servicing, repairs, diagnostics, electrical work and tyres. It also explains appointment arrangements and suitable home visits. The business does not carry out MOT tests or provide roadside breakdown or recovery services.
 
-Core services:
-- Motorcycle servicing
-- Motorcycle repairs
-- Diagnostics and electrical fault finding
-- Motorcycle tyre supply, fitting and balancing
-- Engine and specialist mechanical work
-- Suitable home visits by prior arrangement
+The implementation uses HTML, CSS and vanilla JavaScript, with no framework, package installation or build step.
 
-Salopian Motorsport does not provide roadside breakdown or recovery services and does not carry out MOT tests.
+## What the code demonstrates
 
-## Site structure
+- Responsive page layouts and shared navigation, including a mobile menu with accessible button state.
+- Semantic page structure, skip links, labelled form controls and live form-status feedback.
+- A motorcycle enquiry form that combines bike details into the existing booking service's request format.
+- Asynchronous submission, a disabled submit button while sending, and feedback for network failures.
+- Search metadata, canonical URLs, Open Graph tags, structured data, a sitemap and a robots file.
+- Continuity for old links through a retired car page and host-specific redirect rules.
 
-- `index.html` — local motorcycle workshop homepage
-- `motorcycle.html` — motorcycle services overview
-- `motorcycle-servicing-shrewsbury.html` — servicing landing page
-- `motorcycle-repairs-shrewsbury.html` — repairs landing page
-- `motorcycle-diagnostics-shrewsbury.html` — diagnostics/electrical landing page
-- `motorcycle-tyres-shrewsbury.html` — tyre landing page
-- `about.html` — business positioning
-- `contact.html` — contact details, map and booking-request form
-- `car.html` — retired legacy car page with noindex/client redirect
-- `404.html` — not-found page
-- `robots.txt` / `sitemap.xml` — search-engine discovery
-- `_redirects` — server-side car-page redirect on hosts that support the format
+## Run locally
 
-## Technology
+From the repository folder, start a simple static server:
 
-Static HTML, CSS and vanilla JavaScript. The booking form preserves the existing Google Apps Script contract (`name`, `email`, `phone`, `subject`, `message`) while collecting motorcycle-specific fields in the browser.
+```sh
+python3 -m http.server 8000
+```
 
-## SEO foundations
+Open [http://localhost:8000](http://localhost:8000). Stop the server with `Ctrl+C`. Direct `.html` links work locally; extensionless canonical URLs depend on the production host's routing.
 
-- Unique titles and meta descriptions
-- Canonical URLs
-- Open Graph metadata
-- Semantic headings and internal links
-- `MotorcycleRepair` JSON-LD on the homepage
-- Service JSON-LD on core service pages
-- Sitemap and robots file
-- Legacy car page removed from navigation and sitemap
-- Shrewsbury-focused copy without doorway-location pages
+The contact form points to the business's existing Google Apps Script service. A local preview still uses that live endpoint, so review the form without submitting test enquiries to the business.
 
-## Publishing checklist
+## Repository guide
 
-1. Confirm the preferred public email address.
-2. Confirm Google Business Profile hours remain Mon–Fri 08:00–18:00 and Sat 08:00–13:00.
-3. Verify the hosting provider applies `_redirects`; if not, configure a true HTTP 301 from `/car` and `/car.html` to `/`.
-4. Test the booking form end-to-end against Google Apps Script.
-5. Run Lighthouse / PageSpeed on the deployed preview.
-6. Submit `/sitemap.xml` in Google Search Console.
+| Files | Purpose |
+| --- | --- |
+| `index.html` | Motorcycle workshop homepage |
+| `motorcycle.html` | Services overview |
+| `motorcycle-*-shrewsbury.html` | Dedicated servicing, repairs, diagnostics and tyre pages |
+| `about.html` | Workshop approach and current motorcycle focus |
+| `contact.html` | Contact information, map and booking-request form |
+| `style.css` | Shared layout, component and responsive styles |
+| `script.js` | Mobile navigation, footer year and enquiry submission |
+| `car.html`, `_redirects` | Legacy car-page fallback and server redirect rules |
+| `404.html` | Not-found page |
+| `robots.txt`, `sitemap.xml` | Search-engine discovery |
+| `.jpg`, `.png` assets | Workshop imagery and tyre-brand assets |
+
+## Booking integration and limitations
+
+The browser collects motorcycle details and sends the fields `name`, `email`, `phone`, `subject` and `message` to Google Apps Script. The Apps Script backend is managed separately and is not included in this repository.
+
+Submission currently uses `mode: 'no-cors'`, which returns an opaque response. The browser cannot verify that the backend accepted or delivered an enquiry; successful completion of the fetch alone is not proof of delivery. An appointment is confirmed separately by the workshop.
+
+## Maintenance and deployment
+
+Serve these files from a static host. Before changing production hosting or the booking integration:
+
+- Check the public contact details, social links and opening hours with the business.
+- Check that all page links, images and mobile navigation work.
+- Confirm the host redirects `/car` and `/car.html` to `/` with HTTP 301 responses. `_redirects` only applies on hosts that support that format; `car.html` also provides a browser fallback.
+- Verify enquiry delivery with the business and test the failure feedback.
+- Check extensionless URLs, the not-found response, metadata and sitemap on the deployed site.
+
+Keep customer enquiries, credentials and private configuration out of Git. Business images and brand assets are included for this website; no blanket reuse licence is granted by this repository.
