@@ -51,6 +51,69 @@ button{
   cursor:pointer;
 }
 
+.ars-beta{
+  margin-block:64px;
+  padding:32px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--panel);
+}
+
+.ars-beta h2{
+  margin-top:0;
+  line-height:1.2;
+}
+
+.ars-beta [hidden]{
+  display:none;
+}
+
+.ars-beta-panel{
+  max-width:760px;
+  margin-top:24px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+
+.ars-beta-panel h3{
+  margin-top:0;
+}
+
+.ars-beta-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:24px;
+}
+
+.ars-beta a:not(.button){
+  color:var(--accent-strong);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.ars-beta :focus-visible{
+  outline:3px solid var(--accent-strong);
+  outline-offset:4px;
+}
+
+.ars-beta-status,
+.ars-beta-fallback{
+  color:var(--muted);
+}
+
+.ars-beta .button:disabled{
+  opacity:.7;
+  cursor:default;
+}
+
+@media (max-width:639px){
+  .ars-beta{
+    padding:24px 20px;
+    margin-block:40px;
+  }
+}
+
 .shell{
   width:min(var(--max),calc(100% - 40px));
   margin-inline:auto;
